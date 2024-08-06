@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            margin: 0; 
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+        .container {
+            text-align: center; 
+            border: 1px solid #ddd; 
+            padding: 20px;
+            border-radius: 8px; 
+            background-color: aqua;
+        }
+        a{
+            text-decoration: none;
+            color: blue;
+        }
+        button{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Image</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+        <br>
+        <div class="images">
+        <a href="{% url 'gallery:image_list' %}">View all images</a>
+    </div></div>
+</body>
+</html>

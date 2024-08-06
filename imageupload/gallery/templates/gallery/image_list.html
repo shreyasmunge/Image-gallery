@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+    <style>
+        .button{
+            text-align: center;
+            margin-top: 10px; 
+        }
+        button{
+            background-color: aqua; /* Button background color */
+            color: white; /* Button text color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px; /* Optional: rounded corners */
+            font-size: 16px;}
+    
+        h1{
+            text-align: center;
+        }
+        body{background-color: black;}
+        h3{
+            color: wheat;
+        }
+        h1{color: white;}
+        .gallery{display: flex; flex-wrap: wrap; justify-content: center; }
+         a {
+            text-decoration: none;
+            color: black;
+
+         }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <div class="gallery" >
+        {% for image in images %}
+            <div style="margin: 10px; text-align: center;">
+                <h3>{{ image.title }}</h3>
+                <img src="{{ image.image.url }}" alt="{{ image.title }}" width="300" style="display: block;">
+            </div>
+        {% endfor %}
+    </div>
+    <div class="button">
+    <button><a href="{% url 'gallery:image_upload' %}" >Upload a new image</a></button>
+</div>
+</body>
+</html>
